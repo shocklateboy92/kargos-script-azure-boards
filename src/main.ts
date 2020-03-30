@@ -12,7 +12,13 @@ yargs
     .option('organization', {
         alias: ['orgUrl', 'org'],
         type: 'string',
-        description: 'Azure DevOps Services organization URL'
+        description: 'Azure DevOps Services instance URL',
+        demand: true
+    })
+    .option('project', {
+        type: 'string',
+        description: 'Id or name of the project',
+        demand: true
     })
     .option('patFilePath', {
         alias: [
@@ -53,8 +59,13 @@ yargs
     .command(
         ['runQuery', '$0'],
         'Run the provided query and display its results',
-        builder => builder,
-        args => {
+        builder =>
+            builder.option('query', {
+                description: 'Id or Path of the Azure Boards query to run',
+                type: 'string',
+                demand: true
+            }),
+        async args => {
             info('Authenticating...');
             const authHandler = azDev.getPersonalAccessTokenHandler(
                 args.pat ||
@@ -67,5 +78,11 @@ yargs
                     )
             );
             const connection = new azDev.WebApi(args.organization, authHandler);
+            const workItemTrackingApi = await connection.getWorkItemTrackingApi();
+
+            const query = await workItemTrackingApi.getQuery(
+                args.project,
+                args.query
+            );
         }
     );
