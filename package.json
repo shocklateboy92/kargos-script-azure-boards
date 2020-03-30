@@ -6,8 +6,13 @@
   "repository": "https://github.com/shocklateboy92/kargos-script-azure-boards",
   "author": "Lasath Fernando <devel@lasath.org>",
   "license": "GPL-2.0",
-  "private": false,
+  "private": true,
   "dependencies": {
-    "azure-devops-node-api": "^10.1.0"
+    "azure-devops-node-api": "^10.1.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.5",
+    "@types/yargs": "^15.0.4"
   }
 }
