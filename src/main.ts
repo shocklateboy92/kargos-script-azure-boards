@@ -80,9 +80,14 @@ yargs
             const connection = new azDev.WebApi(args.organization, authHandler);
             const workItemTrackingApi = await connection.getWorkItemTrackingApi();
 
+            info('Fetching query info...');
             const query = await workItemTrackingApi.getQuery(
                 args.project,
                 args.query
             );
+
+            info('Executing query...');
+            const results = await workItemTrackingApi.queryById(query.id);
+            console.log(JSON.stringify(results));
         }
     );
