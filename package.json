@@ -7,12 +7,23 @@
   "author": "Lasath Fernando <devel@lasath.org>",
   "license": "GPL-2.0",
   "private": true,
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "start": "yarn build && node --unhandled-rejections=strict ./pkg/kargos-script-azure-boards/usr/local/lib/js/kargos-script-azure-boards.js"
+  },
   "dependencies": {
     "azure-devops-node-api": "^10.1.0",
     "yargs": "^15.3.1"
   },
   "devDependencies": {
     "@types/node": "^13.9.5",
-    "@types/yargs": "^15.0.4"
+    "@types/webpack": "^4.41.9",
+    "@types/yargs": "^15.0.4",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
