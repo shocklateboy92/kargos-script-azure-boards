@@ -30,7 +30,6 @@ validpgpkeys=()
 
 build() {
     yarn;
-	yarn build --mode=production;
 }
 
 install_file() { 
@@ -40,9 +39,9 @@ install_file() {
 
 package() {
     destdir="${pkgdir}/usr/local";
-    #cd ../../;
+	yarn build --mode=production;
 
     install_file "./font-awesome-bug.svg" "$destdir/share/icons";
-    install_file "./src/kargos-script.azure-boards.6m.sh" "$destdir/bin";
+    install_file "./kargos-script.azure-boards.6m.sh" "$destdir/bin";
 }
 
