@@ -5,6 +5,9 @@
   "main": "pkg/kargos-script-azure-boards/usr/local/lib/js/kargos-script-azure-boards.js",
   "repository": "https://github.com/shocklateboy92/kargos-script-azure-boards",
   "author": "Lasath Fernando <devel@lasath.org>",
-  "license": "GPL",
-  "private": false
+  "license": "GPL-2.0",
+  "private": false,
+  "dependencies": {
+    "azure-devops-node-api": "^10.1.0"
+  }
 }
