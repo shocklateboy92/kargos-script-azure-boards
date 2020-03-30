@@ -1,0 +1,10 @@
+{
+  "name": "kargos-azure-boards",
+  "version": "1.0.0",
+  "description": "Kargos script to display work items in an Azure Boards query",
+  "main": "pkg/kargos-script-azure-boards/usr/local/lib/js/kargos-script-azure-boards.js",
+  "repository": "https://github.com/shocklateboy92/kargos-script-azure-boards",
+  "author": "Lasath Fernando <devel@lasath.org>",
+  "license": "GPL",
+  "private": false
+}
