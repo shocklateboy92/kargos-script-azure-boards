@@ -5,6 +5,7 @@ import os from 'os';
 import path from 'path';
 import { info } from './logger';
 import { formatUi } from './formatUi';
+import { fetchImages } from './images';
 
 const resolveRelative = (fragment: string) =>
     path.resolve(os.homedir(), fragment);
@@ -109,7 +110,12 @@ yargs
                 ids: results.workItems.map(i => i.id).filter(isNotNull)
             });
 
-            console.log(JSON.stringify(details, null, 2));
+            await fetchImages(
+                authHandler,
+                details.map(d => d.fields!['System.ChangedBy'])
+            );
+
+            // console.log(JSON.stringify(details, null, 2));
             console.log(formatUi(args, details));
         }
     )
