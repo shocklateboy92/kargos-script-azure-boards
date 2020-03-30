@@ -4,6 +4,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { info } from './logger';
+import { formatUi } from './formatUi';
 
 const resolveRelative = (fragment: string) =>
     path.resolve(os.homedir(), fragment);
@@ -109,6 +110,7 @@ yargs
             });
 
             console.log(JSON.stringify(details, null, 2));
+            console.log(formatUi(args, details));
         }
     )
     .parse();
