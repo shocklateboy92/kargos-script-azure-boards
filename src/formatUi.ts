@@ -30,8 +30,12 @@ const formatLine = (
         .join(' ')}`;
 
 export const formatUi = (context: IContext, workItems: WorkItem[]) =>
-    formatLine(workItems.length.toString(), {}) +
-    '\n' +
+    formatLine(workItems.length.toString(), {
+        imageURL: '/usr/local/share/icons/font-awesome-bug.svg',
+        imageHeight: 16,
+        imageWidth: 16
+    }) +
+    '\n---\n' +
     workItems
         .filter(item => !!item.fields)
         .map(item =>

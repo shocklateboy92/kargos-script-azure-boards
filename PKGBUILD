@@ -5,7 +5,7 @@
 
 # Maintainer: Your Name <devel@lasath.org>
 pkgname=kargos-script-azure-boards
-pkgver=1.4
+pkgver=1.3
 pkgrel=1
 pkgdesc="My Kargos script to check for PRs in Azure Devops"
 arch=('any')
